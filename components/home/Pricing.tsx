@@ -1,5 +1,7 @@
 "use client";
 
+import Reveal from "../motion/Reveal";
+
 export default function Pricing() {
   const plans = [
     {
@@ -44,16 +46,21 @@ export default function Pricing() {
       <div className="container max-w-6xl mx-auto px-8 py-8 md:py-16 text-center">
         {/* Header */}
         <div className="mb-12">
+          <Reveal x={-100} duration={2}>
           <p className="text-primary font-medium mb-2">Pricing Plans</p>
+          </Reveal>
+          <Reveal x={100} duration={2}>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
             Simple, Transparent <br className="hidden md:block" />
             Pricing for Every Business
           </h2>
+          </Reveal>
         </div>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan, index) => (
+            <Reveal x={100} y={100} duration={2}>
             <div
               key={index}
               className={`bg-white rounded-3xl h-full max-w-xl w-full mx-auto p-8 text-left shadow-sm border border-transparent hover:border-primary hover:shadow-xl transition-all duration-300 flex flex-col justify-between`}
@@ -73,7 +80,7 @@ export default function Pricing() {
                     <span className="text-gray-500 text-sm">/mo</span>
                   </div>
                 </div>
-
+              
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <li
@@ -83,15 +90,17 @@ export default function Pricing() {
                       <span className="text-primary font-bold">✓</span>
                       <span>{feature}</span>
                     </li>
+                    
                   ))}
                 </ul>
               </div>
-
+              
               {/* Button */}
               <button className="bg-primary self-start px-4 text-white font-medium py-3 rounded-lg hover:bg-primary/90 transition mt-4">
                 Get Started
               </button>
             </div>
+            </Reveal> 
           ))}
         </div>
       </div>

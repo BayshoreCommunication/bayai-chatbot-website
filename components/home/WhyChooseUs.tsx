@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Reveal from "../motion/Reveal";
 
 export default function WhyChooseUs() {
   const features = [
@@ -36,16 +37,21 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-8 py-8 md:py-16 text-center">
         {/* Header */}
         <div className="mb-12">
+          <Reveal x={-100} duration={2}>
           <p className="text-primary font-medium mb-2">Why Choose Us</p>
+          </Reveal>
+          <Reveal x={100} duration={2}>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-snug">
             Unique Selling Points & <br className="hidden md:block" />
             Advantages of Our Service
           </h2>
+          </Reveal>
         </div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
           {features.map((feature, index) => (
+            <Reveal y={100} duration={2}>
             <div
               key={index}
               className="group bg-[#000000]/7  rounded-2xl p-6 shadow-lg transition-all duration-300 flex flex-col items-start text-left h-full hover:-translate-y-2 hover:shadow-lg hover:shadow-orange-100 border-b border-primary"
@@ -66,13 +72,16 @@ export default function WhyChooseUs() {
                 {feature.desc}
               </p>
             </div>
+            </Reveal>
           ))}
         </div>
 
         {/* CTA Button */}
+        <Reveal x={-100} duration={2}>
         <button className="bg-primary text-white font-medium px-6 py-3 rounded-lg shadow hover:bg-primary/90 transition">
           Get Started
         </button>
+        </Reveal>
       </div>
     </section>
   );

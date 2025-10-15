@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Reveal from "../motion/Reveal";
 
 export default function AmazingFeatures() {
   const features = [
@@ -18,14 +19,18 @@ export default function AmazingFeatures() {
 
   return (
     <section className="bg-white">
-      <div className="container mx-auto px-8 py-8 md:py-16">
+      <div className="container max-w-6xl mx-auto px-8 py-8 md:py-16">
         {/* ===== Section Header ===== */}
         <div className="text-center mb-12">
+          <Reveal x={-100} duration={2}>
           <p className="text-primary font-medium mb-2">Amazing Features</p>
+          </Reveal>
+          <Reveal x={100} duration={3}>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-snug">
             AI That Understands, Learns <br className="hidden md:block" /> &
             Engages
           </h2>
+          </Reveal>
         </div>
 
         {/* ===== Features Grid ===== */}
@@ -39,6 +44,7 @@ export default function AmazingFeatures() {
 
               {/* Image */}
               <div className="mt-6 flex justify-center">
+              <Reveal x={-100} duration={2}>
                 <Image
                   src={feature.image}
                   alt=""
@@ -46,6 +52,7 @@ export default function AmazingFeatures() {
                   height={800}
                   className="object-contain w-full h-auto"
                 />
+                </Reveal>
               </div>
             </div>
           ))}

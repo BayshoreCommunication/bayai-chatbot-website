@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Reveal from "../motion/Reveal";
 
 export default function Testimonials() {
   const testimonials = [
@@ -62,11 +63,15 @@ export default function Testimonials() {
       <div className="container mx-auto px-8 py-8 md:py-16">
         {/* Header */}
         <div className="text-center mb-12">
+          <Reveal x={-100} duration={2}>
           <p className="text-primary font-medium mb-2">Testimonials</p>
+          </Reveal>
+          <Reveal x={100} duration={2}>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
             Build Trust With Reviews <br className="hidden md:block" />
             Loved by Businesses Worldwide
           </h2>
+          </Reveal>
         </div>
 
         {/* Swiper Slider */}
