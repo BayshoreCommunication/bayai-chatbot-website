@@ -4,6 +4,7 @@ import "./globals.css";
 import { Urbanist } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CursorFollower from "@/components/shared/CursorFollower";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -34,7 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${urbanist.variable} font-urbanist`}>
       <Navbar />
-      <body className="pt-16">{children}</body>
+      <body className="pt-16">
+        <CursorFollower />
+        {children}
+      </body>
       <Footer />
     </html>
   );

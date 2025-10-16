@@ -41,8 +41,9 @@ export default function HowItWorks() {
 
             {/* Floating Robot */}
             <Reveal
-              y={0}
+              y={200}
               duration={2}
+              amount={0.1}
               className="absolute -left-8 -bottom-16 md:-left-16 md:-bottom-32 w-32 sm:w-40 md:w-52 z-10"
             >
               <Image
@@ -97,15 +98,20 @@ export default function HowItWorks() {
       </div>
 
       {/* ===== Floating Paper Plane (right corner) ===== */}
-      {/* <Reveal y={200} duration={2}> */}
-      <Image
-        src="/images/homepage/howitworks/plane.png"
-        alt="Paper Plane"
-        width={1000}
-        height={800}
-        className="absolute right-8 bottom-8 w-20 sm:w-24 md:w-32 "
-      />
-      {/* </Reveal> */}
+      <Reveal
+        y={100}
+        duration={1.5}
+        amount={0.05}
+        className="absolute right-8 bottom-8 w-20 sm:w-24 md:w-32 animate-float-slow"
+      >
+        <Image
+          src="/images/homepage/howitworks/plane.png"
+          alt="Paper Plane"
+          width={1000}
+          height={800}
+          className="w-full h-auto"
+        />
+      </Reveal>
     </section>
   );
 }
