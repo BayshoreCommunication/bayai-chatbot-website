@@ -4,19 +4,21 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
+// Move static menu outside component to avoid changing reference across renders
+const menu = [
+  { id: 1, label: "Home", href: "/" },
+  { id: 2, label: "About", href: "about" },
+  { id: 3, label: "Services", href: "services" },
+  { id: 4, label: "Pricing", href: "pricing" },
+  { id: 5, label: "Contact", href: "contact" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeHref, setActiveHref] = useState("#home");
   const [isAtTop, setIsAtTop] = useState(true);
 
-  // ✅ Menu JSON data (inside component)
-  const menu = [
-    { id: 1, label: "Home", href: "/" },
-    { id: 2, label: "About", href: "about" },
-    { id: 3, label: "Services", href: "services" },
-    { id: 4, label: "Pricing", href: "pricing" },
-    { id: 5, label: "Contact", href: "contact" },
-  ];
+  // menu moved outside component
 
   useEffect(() => {
     // Track scroll position to toggle transparent vs solid background

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa6";
+import Reveal from "../motion/Reveal";
 
 interface BreadcrumbProps {
   title: string;
@@ -27,13 +28,17 @@ export default function Breadcrumb({
 
           {/* Content */}
           <div className="relative z-10">
+            <Reveal x={-100} duration={2}>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               {title}
             </h1>
+            </Reveal>
             {description && (
+               <Reveal x={100} duration={2}>
               <p className="text-gray-900 max-w-xl mb-6 text-sm md:text-base">
                 {description}
               </p>
+              </Reveal>
             )}
 
             {/* Breadcrumb Navigation */}
@@ -63,6 +68,7 @@ export default function Breadcrumb({
 
         {/* ===== Right Image ===== */}
         <div className="flex-1 flex justify-center relative">
+        <Reveal y={200} duration={3}>
           <Image
             src="/images/aboutpage/about/robot.png"
             alt="About Robot"
@@ -70,6 +76,7 @@ export default function Breadcrumb({
             height={800}
             className="w-60 sm:w-72 md:w-96 object-contain"
           />
+          </Reveal>
         </div>
       </div>
     </section>

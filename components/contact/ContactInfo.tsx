@@ -1,6 +1,7 @@
 "use client";
 
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import Reveal from "../motion/Reveal";
 
 export default function ContactInfo() {
   return (
@@ -8,15 +9,20 @@ export default function ContactInfo() {
       <div className="container mx-auto px-8 py-8 md:py-16">
         {/* ===== Header ===== */}
         <div className="text-center mb-12">
+          <Reveal x={-100} duration={2}>
           <p className="text-primary font-medium mb-2">Contact Info</p>
+          </Reveal>
+          <Reveal x={100} duration={2}>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-snug">
             Our Contact Information <br className="hidden md:block" /> & Details
           </h2>
+          </Reveal>
         </div>
 
         {/* ===== Contact Info Cards ===== */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
           {/* Address */}
+          
           <div className="flex items-start gap-4 bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
             <div className="flex items-center justify-center w-12 h-12 bg-[#F9F9F9] text-primary rounded-lg">
               <FaMapMarkerAlt size={20} />
