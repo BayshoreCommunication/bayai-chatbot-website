@@ -52,20 +52,20 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
           {features.map((feature) => (
             <Reveal key={feature.title} y={100} duration={2}>
-              <div className="group bg-[#000000]/7  rounded-2xl p-6 shadow-lg transition-all duration-300 flex flex-col items-start text-left h-full hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 border-b border-primary cursor-pointer">
-                <div className="flex items-center justify-center  w-14 h-auto mb-4 transition">
+              <div className="group bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] hover:-translate-y-2 hover:scale-105 transition-all duration-300 flex flex-col items-start text-left h-full cursor-pointer border-b border-primary hover:border-primary/50">
+                <div className="flex items-center justify-center w-14 h-14 mb-4 text-blue-500">
                   <Image
                     src={feature.image}
                     alt={feature.title}
-                    width={1000}
-                    height={800}
+                    width={50}
+                    height={50}
                     className="object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-black mb-2 group-hover:text-primary transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-700 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
                   {feature.desc}
                 </p>
               </div>
@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
 
         {/* CTA Button */}
         <Reveal x={-100} duration={2}>
-          <button className="bg-primary text-white font-medium px-6 py-3 rounded-lg shadow hover:bg-primary/90 transition">
+          <button className="bg-primary text-white font-medium px-6 py-3 rounded-lg shadow-lg shadow-primary/25 hover:bg-primary/90 hover:scale-105 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 transform">
             Get Started
           </button>
         </Reveal>

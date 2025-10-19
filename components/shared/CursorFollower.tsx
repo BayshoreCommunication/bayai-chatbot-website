@@ -91,17 +91,17 @@ export default function CursorFollower() {
   return (
     <div
       ref={dotRef}
-      className="pointer-events-none fixed left-0 top-0 z-[9999] h-6 w-6 -translate-x-1/2 -translate-y-1/2"
+      className="pointer-events-none fixed left-0 top-0 z-[9999] h-8 w-8 -translate-x-1/2 -translate-y-1/2"
       aria-hidden
     >
       {isHovering ? (
-        // Arrow when hovering over interactive elements
-        <div className="w-full h-full flex items-center justify-center">
+        // Arrow inside circle when hovering over interactive elements
+        <div className="w-full h-full rounded-full bg-primary/80 flex items-center justify-center">
           <div className="relative">
             {/* Arrow body */}
-            <div className="w-4 h-0.5 bg-primary"></div>
+            <div className="w-4 h-0.5 bg-white"></div>
             {/* Arrow head */}
-            <div className="absolute top-1/2 right-0 w-0 h-0 border-l-[6px] border-l-primary border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent transform -translate-y-1/2"></div>
+            <div className="absolute top-1/2 right-0 w-0 h-0 border-l-[5px] border-l-white border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent transform -translate-y-1/2"></div>
           </div>
         </div>
       ) : (
