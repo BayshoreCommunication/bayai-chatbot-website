@@ -30,7 +30,7 @@ export default function Stats() {
               </p>
             </Reveal>
             <Reveal x={100} y={100} duration={2}>
-              <button className="bg-primary hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition">
+              <button className="bg-primary hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform">
                 Get Started
               </button>
             </Reveal>

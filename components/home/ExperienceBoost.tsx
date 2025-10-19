@@ -47,10 +47,10 @@ export default function ExperienceBoost() {
             {/* Buttons */}
             <Reveal x={100} duration={2}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="bg-primary hover:bg-orange-500 text-white font-medium px-8 py-3 rounded-lg transition">
+              <button className="bg-primary hover:bg-orange-500 text-white font-medium px-8 py-3 rounded-lg hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform">
                 Get Started
               </button>
-              <button className="bg-white border border-gray-300 hover:border-primary hover:text-primary text-gray-800 font-medium px-8 py-3 rounded-lg transition">
+              <button className="bg-white border border-gray-300 hover:border-primary hover:text-primary text-gray-800 font-medium px-8 py-3 rounded-lg hover:scale-105 hover:shadow-lg transition-all duration-300 transform">
                 Live Demo
               </button>
             </div>

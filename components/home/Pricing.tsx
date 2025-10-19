@@ -62,7 +62,7 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <Reveal key={plan.name} x={100} y={100} duration={2}>
               <div
-                className={`bg-white rounded-3xl h-full max-w-xl w-full mx-auto p-8 text-left shadow-sm border border-transparent hover:border-primary hover:shadow-xl transition-all duration-300 flex flex-col justify-between`}
+                className={`bg-white rounded-3xl h-full max-w-xl w-full mx-auto p-8 text-left shadow-sm border border-transparent hover:border-primary hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col justify-between cursor-pointer`}
               >
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -96,7 +96,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Button */}
-                <button className="bg-primary self-start px-4 text-white font-medium py-3 rounded-lg hover:bg-primary/90 transition mt-4">
+                <button className="bg-primary self-start px-4 text-white font-medium py-3 rounded-lg hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform mt-4">
                   Get Started
                 </button>
               </div>

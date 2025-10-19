@@ -90,7 +90,7 @@ export default function HowItWorks() {
 
           {/* CTA Button */}
           <Reveal x={200} duration={2}>
-            <button className="mt-8 bg-primary text-white font-medium px-6 py-3 rounded-lg shadow hover:bg-primary/90 transition">
+            <button className="mt-8 bg-primary text-white font-medium px-6 py-3 rounded-lg shadow hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform">
               Get Started
             </button>
           </Reveal>

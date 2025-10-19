@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
           {features.map((feature) => (
             <Reveal key={feature.title} y={100} duration={2}>
-              <div className="group bg-[#000000]/7  rounded-2xl p-6 shadow-lg transition-all duration-300 flex flex-col items-start text-left h-full hover:-translate-y-2 hover:shadow-lg hover:shadow-orange-100 border-b border-primary">
+              <div className="group bg-[#000000]/7  rounded-2xl p-6 shadow-lg transition-all duration-300 flex flex-col items-start text-left h-full hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 border-b border-primary cursor-pointer">
                 <div className="flex items-center justify-center  w-14 h-auto mb-4 transition">
                   <Image
                     src={feature.image}

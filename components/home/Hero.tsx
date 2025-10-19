@@ -43,10 +43,10 @@ export default function Hero() {
           {/* Buttons */}
           <Reveal x={100} duration={2}>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-primary/90 transition">
+              <button className="bg-primary text-white font-semibold px-6 py-3 rounded-md hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform">
                 Get Started
               </button>
-              <button className="bg-white border border-gray-200 text-gray-800 font-semibold px-6 py-3 rounded-md hover:bg-gray-50 transition">
+              <button className="bg-white border border-gray-200 text-gray-800 font-semibold px-6 py-3 rounded-md hover:bg-gray-50 hover:scale-105 hover:shadow-lg hover:border-primary hover:text-primary transition-all duration-300 transform">
                 Live Demo
               </button>
             </div>
@@ -67,50 +67,54 @@ export default function Hero() {
           </Reveal>
           {/* Floating Chat Bubbles */}
 
-          <div className="absolute top-[15%] left-[5%] bg-white shadow-lg rounded-full px-4 py-2 text-xs md:text-sm text-gray-600 flex items-center gap-2 animate-float-slow z-10 w-[260px]">
+          <div className="absolute top-[15%] left-[5%] bg-white shadow-lg rounded-full px-4 py-2 text-xs md:text-sm text-gray-600 flex items-center gap-2 animate-float-slow z-10 w-[260px] hover:scale-110 hover:shadow-xl hover:shadow-primary/20 hover:bg-primary/5 hover:text-primary transition-all duration-300 transform cursor-pointer group">
             <Image
               src="/images/homepage/hero/float-1.png"
               alt="Chatbot Robot"
               width={1000}
               height={800}
-              className="object-contain  z-10  w-8 h-8"
+              className="object-contain z-10 w-8 h-8 group-hover:scale-110 transition-transform duration-300"
               priority
             />
-            Hey, how can we help you?
+            <span className="group-hover:font-medium transition-all duration-300">
+              Hey, how can we help you?
+            </span>
           </div>
 
-          <div className="absolute bottom-[20%] right-[8%] bg-white shadow-lg rounded-full px-4 py-2 text-xs md:text-sm text-gray-600 flex items-center gap-2 animate-float-medium z-10 w-[280px]">
+          <div className="absolute bottom-[20%] right-[8%] bg-white shadow-lg rounded-full px-4 py-2 text-xs md:text-sm text-gray-600 flex items-center gap-2 animate-float-medium z-10 w-[280px] hover:scale-110 hover:shadow-xl hover:shadow-primary/20 hover:bg-primary/5 hover:text-primary transition-all duration-300 transform cursor-pointer group">
             <Image
               src="/images/homepage/hero/float-2.png"
               alt="Chatbot Robot"
               width={1000}
               height={800}
-              className="object-contain  z-10  w-8 h-8"
+              className="object-contain z-10 w-8 h-8 group-hover:scale-110 transition-transform duration-300"
               priority
             />
-            Can you help me create a task?
+            <span className="group-hover:font-medium transition-all duration-300">
+              Can you help me create a task?
+            </span>
           </div>
 
           {/* Floating message icons */}
-          <div className="absolute top-[60%] -left-6 md:top-[60%] md:left-8 z-10">
+          <div className="absolute top-[60%] -left-6 md:top-[60%] md:left-8 z-10 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Reveal x={100} duration={2}>
               <Image
                 src="/images/homepage/hero/message-left.png"
                 alt="Chat Bubble 1"
                 width={1000}
                 height={800}
-                className="object-contain w-[50px] md:w-[80px] h-auto"
+                className="object-contain w-[50px] md:w-[80px] h-auto hover:drop-shadow-lg transition-all duration-300"
               />
             </Reveal>
           </div>
-          <div className="absolute bottom-[60%] left-[85%] md:bottom-[60%] md:left-[80%] z-20">
+          <div className="absolute bottom-[60%] left-[85%] md:bottom-[60%] md:left-[80%] z-20 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Reveal x={100} duration={2}>
               <Image
                 src="/images/homepage/hero/message-right.png"
                 alt="Chat Bubble 2"
                 width={1000}
                 height={800}
-                className="object-contain w-[70px] md:w-[100px] h-auto "
+                className="object-contain w-[70px] md:w-[100px] h-auto hover:drop-shadow-lg transition-all duration-300"
               />
             </Reveal>
           </div>

@@ -1,24 +1,31 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 // Move static menu outside component to avoid changing reference across renders
 const menu = [
   { id: 1, label: "Home", href: "/" },
-  { id: 2, label: "About", href: "about" },
-  { id: 3, label: "Services", href: "services" },
-  { id: 4, label: "Pricing", href: "pricing" },
-  { id: 5, label: "Contact", href: "contact" },
+  { id: 2, label: "About", href: "/about" },
+  { id: 3, label: "Services", href: "/services" },
+  { id: 4, label: "Pricing", href: "/pricing" },
+  { id: 5, label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeHref, setActiveHref] = useState("#home");
   const [isAtTop, setIsAtTop] = useState(true);
+  const pathname = usePathname();
 
-  // menu moved outside component
+  // Determine active menu item based on current pathname
+  const getActiveHref = () => {
+    if (pathname === "/") return "/";
+    return pathname;
+  };
+
+  const activeHref = getActiveHref();
 
   useEffect(() => {
     // Track scroll position to toggle transparent vs solid background
@@ -28,49 +35,8 @@ export default function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    // Highlight based on URL hash on initial load
-    if (typeof window !== "undefined" && window.location.hash) {
-      setActiveHref(window.location.hash);
-    }
-
-    const sectionIds = menu.map((m) => m.href.replace("#", ""));
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
-
-    if (sections.length === 0) {
-      return; // no sections found; skip observer
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Pick the entry most in view
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) {
-          const id = visible[0].target.getAttribute("id");
-          if (id) setActiveHref(`#${id}`);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "0px 0px -60% 0px", // triggers a bit earlier (top of viewport)
-        threshold: [0.2, 0.4, 0.6, 0.8, 1],
-      }
-    );
-
-    sections.forEach((sec) => observer.observe(sec));
-
-    const handleHashChange = () => {
-      setActiveHref(window.location.hash || "#home");
-    };
-    window.addEventListener("hashchange", handleHashChange);
-
     return () => {
-      window.removeEventListener("hashchange", handleHashChange);
       window.removeEventListener("scroll", onScroll);
-      observer.disconnect();
     };
   }, []);
 
@@ -92,7 +58,6 @@ export default function Navbar() {
             <Link
               key={item.id}
               href={item.href}
-              onClick={() => setActiveHref(item.href)}
               className={`text-lg font-medium ${
                 activeHref === item.href
                   ? "text-primary"
@@ -106,8 +71,8 @@ export default function Navbar() {
 
         {/* Contact Button */}
         <Link
-          href="#contact"
-          className="hidden md:inline-block bg-primary text-white font-semibold text-lg py-2 px-6 rounded-md hover:bg-primary/90 transition"
+          href="tel:+15095921745"
+          className="hidden md:inline-block bg-primary text-white font-semibold text-lg py-2 px-6 rounded-md hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform"
         >
           Contact Us
         </Link>
@@ -134,18 +99,15 @@ export default function Navbar() {
                     ? "text-primary"
                     : "text-gray-700 hover:text-primary"
                 } transition`}
-                onClick={() => {
-                  setActiveHref(item.href);
-                  setIsOpen(false);
-                }}
+                onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
 
             <Link
-              href="#contact"
-              className="bg-primary text-white font-semibold text-sm py-2 px-6 rounded-md hover:bg-primary/90 transition"
+              href="tel:+15095921745"
+              className="bg-primary text-white font-semibold text-sm py-2 px-6 rounded-md hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform"
               onClick={() => setIsOpen(false)}
             >
               Contact Us
