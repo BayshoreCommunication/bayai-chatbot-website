@@ -73,8 +73,22 @@ export default function HowItWorks() {
           <div className="space-y-6">
             {steps.map((step) => (
               <div key={step.id} className="flex items-start gap-4">
-                <div className=" rounded-lg text-primary  bg-white  p-4 flex items-center justify-center text-lg font-bold shrink-0">
-                  {step.id}
+                <div className="relative group">
+                  <div className="rounded-lg text-primary bg-white p-4 flex items-center justify-center text-lg font-bold shrink-0 cursor-pointer hover:scale-110 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform w-12">
+                    {step.id}
+                  </div>
+
+                  {/* Hover Popup */}
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                    <div className="bg-gray-900 text-white text-sm rounded-lg px-3 py-2 whitespace-nowrap shadow-lg">
+                      <div className="font-semibold mb-1">{step.title}</div>
+                      <div className="text-xs text-gray-300 max-w-xs">
+                        {step.desc}
+                      </div>
+                      {/* Arrow pointing down */}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">

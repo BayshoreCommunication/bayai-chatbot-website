@@ -33,7 +33,7 @@ export default function Trustedby() {
             {brands.map((brand, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center bg-gray-50 hover:bg-gray-100 rounded-xl p-3 sm:p-4 transition-all duration-300 w-28 sm:w-32 h-16 sm:h-20 shadow-sm"
+                className="flex items-center justify-center  transition-all duration-300 w-28 sm:w-32 h-16 sm:h-20 shadow-sm"
               >
                 <Reveal x={100} duration={2}>
                 <Image
@@ -41,7 +41,7 @@ export default function Trustedby() {
                   alt={brand.name}
                   width={1000}
                   height={800}
-                  className="object-contain"
+                  className="object-contain w-full h-auto"
                 />
                 </Reveal>
               </div>
