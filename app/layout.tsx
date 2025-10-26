@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${urbanist.variable} font-urbanist`}>
       <Navbar />
-      <body className="pt-16">
+      <body className="pt-16 overflow-x-hidden">
         <CursorFollower />
         {children}
       </body>

@@ -1,14 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPaperPlane } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaPaperPlane,
+} from "react-icons/fa";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
       <div className="container  px-8 py-8 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        
         {/* ===== Brand Section ===== */}
         <div>
           <h2 className="text-2xl font-bold mb-4">
@@ -65,7 +69,8 @@ export default function Footer() {
               <FiPhone className="text-primary" /> +1 509 592 1745
             </li>
             <li className="flex items-center gap-2">
-              <FiMail className="text-primary" /> bayai@bayshorecommunication.com
+              <FiMail className="text-primary" />{" "}
+              bayai@bayshorecommunication.com
             </li>
             <li className="flex items-start gap-2">
               <FiMapPin className="text-primary mt-1" />
@@ -104,7 +109,13 @@ export default function Footer() {
 
       {/* ===== Copyright ===== */}
       <div className="border-t border-gray-800 text-center py-6 text-sm text-[#BEBEBE]">
-        Copyright © 2025 <span className="underline"><Link href="https://www.bayshorecommunication.com/">Bayshore Communication</Link></span>. All Rights Reserved.
+        Copyright © 2025{" "}
+        <span className="underline">
+          <Link href="https://www.bayshorecommunication.com/">
+            Bayshore Communication
+          </Link>
+        </span>
+        . All Rights Reserved.
       </div>
     </footer>
   );
