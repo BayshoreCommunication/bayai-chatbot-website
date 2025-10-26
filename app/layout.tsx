@@ -13,9 +13,9 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "chatbot-landing-page",
-  description: "Chatbot Landing Page",
-  // metadataBase: new URL(""),
+  title: "bayai-chatbot",
+  description: "Bayai Chatbot",
+  metadataBase: new URL("bayai-chatbot-website.vercel.app"),
   alternates: {
     canonical: "/",
     languages: {
