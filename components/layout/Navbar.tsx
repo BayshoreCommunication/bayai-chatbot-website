@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
-// Move static menu outside component to avoid changing reference across renders
 const menu = [
   { id: 1, label: "Home", href: "/" },
   { id: 2, label: "About", href: "/about" },
@@ -17,28 +16,30 @@ const menu = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
-  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
 
-  // Determine active menu item based on current pathname
-  const getActiveHref = () => {
-    if (pathname === "/") return "/";
-    return pathname;
-  };
+  // Run only after mount to prevent hydration issues
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const activeHref = getActiveHref();
+  // Don’t access pathname until mounted
+  const pathname = mounted ? usePathname() : "/";
+  const activeHref = pathname === "/" ? "/" : pathname;
 
   useEffect(() => {
-    // Track scroll position to toggle transparent vs solid background
-    const onScroll = () => {
-      setIsAtTop(window.scrollY < 10);
-    };
+    const onScroll = () => setIsAtTop(window.scrollY < 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (!mounted) {
+    // Optional: return a placeholder header during SSR to avoid HTML mismatch
+    return (
+      <header className="fixed top-0 left-0 right-0 w-full h-[72px] bg-transparent border-t-2 border-primary z-[100]" />
+    );
+  }
 
   return (
     <header
@@ -79,7 +80,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-2xl text-gray-700"
+          className="md:hidden text-2xl text-gray-700 mr-10"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <FiX /> : <FiMenu />}
@@ -87,34 +88,36 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-          <div className="flex flex-col items-center space-y-4 py-6">
-            {menu.map((item) => (
-              <Link
-                key={item.id}
-                href={item.href}
-                className={`text-sm font-medium ${
-                  activeHref === item.href
-                    ? "text-primary"
-                    : "text-gray-700 hover:text-primary"
-                } transition`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+        } bg-white border-t border-gray-100 shadow-lg`}
+      >
+        <div className="flex flex-col items-center space-y-4 py-6">
+          {menu.map((item) => (
             <Link
-              href="tel:+15095921745"
-              className="bg-primary text-white font-semibold text-sm py-2 px-6 rounded-md hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform"
+              key={item.id}
+              href={item.href}
+              className={`text-sm font-medium ${
+                activeHref === item.href
+                  ? "text-primary"
+                  : "text-gray-700 hover:text-primary"
+              } transition`}
               onClick={() => setIsOpen(false)}
             >
-              Contact Us
+              {item.label}
             </Link>
-          </div>
+          ))}
+
+          <Link
+            href="tel:+15095921745"
+            className="bg-primary text-white font-semibold text-sm py-2 px-6 rounded-md hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact Us
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }
