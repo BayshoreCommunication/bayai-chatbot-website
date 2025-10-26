@@ -6,7 +6,7 @@ import Reveal from "../motion/Reveal";
 
 export default function AboutSection() {
   return (
-    <section className="container px-8 py-8 md:py-16">
+    <section className="container px-8 py-8 md:py-16 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left side: images */}
         <div className="flex justify-center gap-6">
