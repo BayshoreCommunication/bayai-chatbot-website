@@ -5,4 +5,8 @@
 
 body {
   @apply font-urbanist;
+  
+}
+html, body {
+  overflow-x: hidden;
 }
