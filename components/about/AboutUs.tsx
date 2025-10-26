@@ -14,7 +14,7 @@ export default function AboutSection() {
             <div className="relative  rounded-2xl overflow-hidden">
               <Reveal x={100} y={100} duration={2}>
               <Image
-                src="/images/aboutpage/aboutus/about.png"
+                src="/images/aboutpage/aboutus/about/about.png"
                 alt="AI Face"
                 width={1000}
                 height={800}
