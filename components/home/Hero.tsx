@@ -26,10 +26,13 @@ export default function Hero() {
 
           {/* Title */}
           <Reveal x={-100} duration={2}>
-            <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-black mb-4">
-              Boost <br /> Conversations with <br />
-              Our Intelligent <br />
-              <span className="text-primary">Chatbot</span> Platform
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-black mb-4">
+              <div className="mb-2">Boost</div>
+              <div className="mb-2">Conversations with</div>
+              <div className="mb-2">Our Intelligent</div>
+              <div>
+                <span className="text-primary">Chatbot</span> Platform
+              </div>
             </h1>
           </Reveal>
           <Reveal y={30} duration={2}>
